@@ -62,18 +62,20 @@ const contactForm = document.querySelector("#contact-form"),
   contactService = document.querySelector("#contact-service"),
   contactDetails = document.querySelector("#contact-details");
 let packageDetailsPrefill = "";
-document.querySelectorAll(".package-select, .service-select").forEach((link) => {
-  link.addEventListener("click", () => {
-    contactService.value = link.dataset.service;
-    if (
-      link.dataset.details &&
-      (!contactDetails.value || contactDetails.value === packageDetailsPrefill)
-    ) {
-      packageDetailsPrefill = link.dataset.details;
-      contactDetails.value = packageDetailsPrefill;
-    }
+document
+  .querySelectorAll(".package-select, .service-select, .study-contact-link")
+  .forEach((link) => {
+    link.addEventListener("click", () => {
+      contactService.value = link.dataset.service;
+      if (
+        link.dataset.details &&
+        (!contactDetails.value || contactDetails.value === packageDetailsPrefill)
+      ) {
+        packageDetailsPrefill = link.dataset.details;
+        contactDetails.value = packageDetailsPrefill;
+      }
+    });
   });
-});
 contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(contactForm),
@@ -90,4 +92,49 @@ contactForm.addEventListener("submit", (event) => {
   contactStatus.textContent =
     "WhatsApp dibuka dengan pesan yang sudah disiapkan. Tekan Kirim di WhatsApp untuk mengirimnya.";
   window.location.assign(whatsappUrl);
+});
+
+function closeStudyPopup(popup, trigger) {
+  popup.classList.remove("is-open");
+  popup.setAttribute("aria-hidden", "true");
+  if (trigger) trigger.focus();
+}
+
+document.querySelectorAll(".study-popup-trigger").forEach((trigger) => {
+  const popup = document.getElementById(trigger.getAttribute("aria-controls"));
+  const closeButton = popup?.querySelector(".study-popup-close");
+
+  if (!popup || !closeButton) return;
+
+  trigger.addEventListener("click", () => {
+    popup.classList.add("is-open");
+    popup.setAttribute("aria-hidden", "false");
+    closeButton.focus();
+  });
+
+  closeButton.addEventListener("click", () => closeStudyPopup(popup, trigger));
+
+  popup.addEventListener("click", (event) => {
+    if (event.target === popup) closeStudyPopup(popup, trigger);
+  });
+
+  popup.querySelectorAll('a[href="#kontak"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      closeStudyPopup(popup);
+      window.location.hash = "kontak";
+      document.querySelector("#kontak").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  const activePopup = document.querySelector(".study-popup.is-open");
+  if (!activePopup) return;
+
+  const trigger = document.querySelector(
+    `.study-popup-trigger[aria-controls="${activePopup.id}"]`,
+  );
+  closeStudyPopup(activePopup, trigger);
 });
