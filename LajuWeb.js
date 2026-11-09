@@ -57,6 +57,40 @@ const observer = new IntersectionObserver(
 document
   .querySelectorAll(".reveal:not(.show)")
   .forEach((el) => observer.observe(el));
+const studyCarousel = document.querySelector(".study-carousel");
+if (studyCarousel) {
+  const slides = [...studyCarousel.querySelectorAll(".study-card")],
+    dots = [...studyCarousel.querySelectorAll("[data-study-slide]")],
+    status = studyCarousel.querySelector(".study-carousel-status"),
+    previousButton = studyCarousel.querySelector("[data-study-prev]"),
+    nextButton = studyCarousel.querySelector("[data-study-next]");
+  let activeStudy = slides.findIndex((slide) => !slide.hidden);
+
+  function showStudy(index) {
+    activeStudy = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === activeStudy;
+      slide.hidden = !active;
+      slide.setAttribute(
+        "aria-label",
+        `${slideIndex + 1} dari ${slides.length}`,
+      );
+    });
+    dots.forEach((dot, dotIndex) => {
+      dot.setAttribute("aria-current", String(dotIndex === activeStudy));
+    });
+    status.textContent = `${activeStudy + 1} / ${slides.length}`;
+  }
+
+  previousButton.addEventListener("click", () => showStudy(activeStudy - 1));
+  nextButton.addEventListener("click", () => showStudy(activeStudy + 1));
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () =>
+      showStudy(Number(dot.dataset.studySlide)),
+    );
+  });
+  showStudy(activeStudy < 0 ? 0 : activeStudy);
+}
 const contactForm = document.querySelector("#contact-form"),
   contactStatus = document.querySelector("#contact-status"),
   contactService = document.querySelector("#contact-service"),
