@@ -4188,6 +4188,15 @@ html[data-theme="light"] body {
   font-size: 17px;
 }
 
+.contact-box > div > h2 {
+  margin: 0;
+  padding: 0 0 10px;
+}
+
+.contact-box > div > p {
+  margin: 0;
+}
+
 .contact-box .contact-form label,
 .contact-box .form-hint,
 .contact-box .status {
@@ -4198,6 +4207,12 @@ html[data-theme="light"] body {
 .contact-box .contact-form select,
 .contact-box .contact-form textarea {
   font-size: 16px;
+}
+
+@media (max-width: 780px) {
+  .contact-box .contact-form {
+    padding-top: 10px;
+  }
 }
 
 #karya .study-carousel {
