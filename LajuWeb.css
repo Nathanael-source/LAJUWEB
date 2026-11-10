@@ -4190,7 +4190,7 @@ html[data-theme="light"] body {
 
 .contact-box > div > h2 {
   margin: 0;
-  padding: 0 0 10px;
+  padding: 0 0 18px;
 }
 
 .contact-box > div > p {
@@ -4238,7 +4238,7 @@ html[data-theme="light"] body {
 #karya .section-head > p {
   max-width: none;
   margin: 0;
-  padding: 0;
+  padding: 16px 0 0;
   text-align: left;
 }
 
@@ -4460,7 +4460,7 @@ html[data-theme="light"] body {
 }
 
 .process .section-head > p {
-  padding-top: 8px;
+  padding-top: 16px;
 }
 
 .process .process-frame > .steps {
