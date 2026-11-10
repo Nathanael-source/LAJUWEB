@@ -489,12 +489,17 @@ header {
   font-weight: 700;
 }
 .about-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
   padding: 38px;
 }
 .about-copy h2 {
   font: 600 47px/1 var(--display);
   letter-spacing: -3px;
-  padding: 18px 0;
+  margin: 0;
+  padding: 0;
 }
 .about-copy h2 em {
   font-family: var(--serif);
@@ -502,13 +507,13 @@ header {
   color: var(--lime);
 }
 .about-copy p {
+  margin: 0;
   color: var(--muted);
 }
 .values {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 13px;
-  padding-top: 18px;
   font-size: 12px;
   font-weight: 700;
 }
@@ -1563,8 +1568,7 @@ html[data-theme="light"] .footer-row .brand {
   padding-inline: 0;
 }
 
-.process > .section-head,
-.process > .steps {
+.process > .process-frame {
   width: min(1600px, calc(100% - 48px));
   position: relative;
   left: 50%;
@@ -1576,8 +1580,7 @@ html[data-theme="light"] .footer-row .brand {
     width: min(calc(100% - 36px), 680px);
   }
 
-  .process > .section-head,
-  .process > .steps {
+  .process > .process-frame {
     width: min(calc(100% - 36px), 680px);
   }
 }
@@ -1853,8 +1856,7 @@ header {
   color: var(--muted);
 }
 
-.process > .section-head,
-.process > .steps {
+.process > .process-frame {
   width: min(1600px, calc(100% - 48px));
 }
 
@@ -1987,8 +1989,7 @@ html[data-theme="light"] .card:hover {
 
 @media (max-width: 780px) {
   .shell,
-  .process > .section-head,
-  .process > .steps {
+  .process > .process-frame {
     width: min(calc(100% - 36px), 680px);
   }
 
@@ -2674,8 +2675,7 @@ html[data-theme="light"] #karya .section-head > p {
 
 @media (max-width: 780px) {
   .shell,
-  .process > .section-head,
-  .process > .steps {
+  .process > .process-frame {
     width: min(calc(100% - 36px), 680px);
   }
 
@@ -2714,14 +2714,10 @@ html[data-theme="light"] #karya .section-head > p {
   }
 }
 
-.process > .steps {
+.process > .process-frame > .steps {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-  width: min(1600px, calc(100% - 48px));
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .process .step,
@@ -2761,16 +2757,12 @@ html[data-theme="light"] #karya .section-head > p {
 }
 
 @media (max-width: 1000px) {
-  .process > .steps {
+  .process > .process-frame > .steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 780px) {
-  .process > .steps {
-    width: min(calc(100% - 36px), 680px);
-  }
-
   .process .step,
   .process .step + .step {
     min-height: 205px;
@@ -2779,7 +2771,7 @@ html[data-theme="light"] #karya .section-head > p {
 }
 
 @media (max-width: 520px) {
-  .process > .steps {
+  .process > .process-frame > .steps {
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
   }
@@ -4332,16 +4324,22 @@ html[data-theme="light"] body {
   padding-bottom: 12px;
 }
 
+.business-info > .shell {
+  padding: clamp(20px, 3.5vw, 40px);
+  border: 1px solid var(--lime-deep);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
 .business-info .section-head h2 {
   max-width: none;
   margin: 0;
   padding: 0;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .business-info .section-head > p {
   max-width: none;
-  white-space: nowrap;
 }
 
 .business-info.pad {
@@ -4349,8 +4347,17 @@ html[data-theme="light"] body {
 }
 
 @media (max-width: 780px) {
+  .business-info > .shell {
+    padding: 20px;
+  }
+
   .business-info .section-head h2 {
-    font-size: clamp(20px, 5vw, 38px);
+    font-size: clamp(24px, 7vw, 38px);
+    line-height: 1.05;
+  }
+
+  .business-info .section-head > p {
+    font-size: 14px;
   }
 }
 
@@ -4413,6 +4420,13 @@ html[data-theme="light"] body {
   padding-block: clamp(36px, 4vw, 56px);
 }
 
+.process-frame {
+  padding: clamp(20px, 3.5vw, 40px);
+  border: 1px solid var(--lime-deep);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
 .process .section-head {
   padding-bottom: 16px;
 }
@@ -4426,7 +4440,7 @@ html[data-theme="light"] body {
 
 .process .section-head h2 {
   max-width: none;
-  white-space: nowrap;
+  white-space: normal;
   text-align: left;
 }
 
@@ -4434,7 +4448,7 @@ html[data-theme="light"] body {
   padding-top: 8px;
 }
 
-.process > .steps {
+.process .process-frame > .steps {
   gap: 12px;
 }
 
@@ -4450,8 +4464,13 @@ html[data-theme="light"] body {
 }
 
 @media (max-width: 780px) {
+  .process-frame {
+    padding: 20px;
+  }
+
   .process .section-head h2 {
-    font-size: clamp(20px, 5vw, 38px);
+    font-size: clamp(24px, 7vw, 38px);
+    line-height: 1.05;
   }
 }
 
