@@ -4266,6 +4266,8 @@ html[data-theme="light"] body {
 #layanan .section-head h2 {
   max-width: none;
   padding: 0;
+  font-size: clamp(38px, 4.5vw, 58px);
+  line-height: 1.12;
   white-space: normal;
 }
 
@@ -4280,8 +4282,8 @@ html[data-theme="light"] body {
   }
 
   #layanan .section-head h2 {
-    font-size: clamp(24px, 7vw, 38px);
-    line-height: 1.05;
+    font-size: clamp(34px, 8vw, 46px);
+    line-height: 1.08;
   }
 
   #layanan .section-head > p {
@@ -4367,8 +4369,8 @@ html[data-theme="light"] body {
   }
 
   .business-info .section-head h2 {
-    font-size: clamp(24px, 7vw, 38px);
-    line-height: 1.05;
+    font-size: clamp(34px, 8vw, 46px);
+    line-height: 1.08;
   }
 
   .business-info .section-head > p {
@@ -4455,6 +4457,8 @@ html[data-theme="light"] body {
 
 .process .section-head h2 {
   max-width: none;
+  font-size: clamp(38px, 4.5vw, 58px);
+  line-height: 1.12;
   white-space: normal;
   text-align: left;
 }
@@ -4484,8 +4488,8 @@ html[data-theme="light"] body {
   }
 
   .process .section-head h2 {
-    font-size: clamp(24px, 7vw, 38px);
-    line-height: 1.05;
+    font-size: clamp(34px, 8vw, 46px);
+    line-height: 1.08;
   }
 }
 
