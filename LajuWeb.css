@@ -4239,6 +4239,12 @@ html[data-theme="light"] body {
   padding-block: clamp(36px, 4vw, 56px);
 }
 
+#layanan .services-frame {
+  padding: clamp(20px, 3.5vw, 40px);
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+}
+
 #layanan .section-head {
   padding-bottom: 16px;
 }
@@ -4253,19 +4259,26 @@ html[data-theme="light"] body {
 #layanan .section-head h2 {
   max-width: none;
   padding: 0;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 #layanan .section-head > p {
   max-width: none;
   padding-top: 8px;
-  white-space: nowrap;
 }
 
 @media (max-width: 780px) {
-  #layanan .section-head h2,
+  #layanan .services-frame {
+    padding: 20px;
+  }
+
+  #layanan .section-head h2 {
+    font-size: clamp(24px, 7vw, 38px);
+    line-height: 1.05;
+  }
+
   #layanan .section-head > p {
-    font-size: clamp(20px, 5vw, 38px);
+    font-size: 14px;
   }
 }
 
@@ -4301,7 +4314,7 @@ html[data-theme="light"] body {
 }
 
 .faq-area.pad {
-  padding-top: 0;
+  padding-top: clamp(16px, 2.5vw, 28px);
 }
 
 .faq-area .section-head h2 {
