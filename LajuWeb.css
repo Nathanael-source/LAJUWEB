@@ -3110,6 +3110,14 @@ html[data-theme="light"] #karya .section-head > p {
   background: #f5f0e7;
 }
 
+.cafe-site-menu-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 14px;
+  object-fit: cover;
+}
+
 .cafe-site-menu-grid article > span {
   color: #9b7955;
   font-size: 10px;
@@ -3117,7 +3125,7 @@ html[data-theme="light"] #karya .section-head > p {
 }
 
 .cafe-site-menu-grid h3 {
-  padding: 17px 0 6px;
+  padding: 10px 0 6px;
   color: #392b20;
   font: 700 16px var(--display);
 }
@@ -3327,8 +3335,7 @@ html[data-theme="light"] #karya .section-head > p {
   line-height: 1.8;
 }
 
-.mini-home-hero-copy > a,
-.mini-home-footer > a {
+.mini-home-hero-copy > a {
   display: inline-flex;
   gap: 20px;
   padding-top: 14px;
@@ -3434,10 +3441,6 @@ html[data-theme="light"] #karya .section-head > p {
   color: #45513f;
   font-size: 11px;
   font-weight: 800;
-}
-
-.mini-home-footer > a {
-  padding: 11px 14px;
 }
 
 .mini-home-footer > small {
@@ -3549,8 +3552,7 @@ html[data-theme="light"] #karya .section-head > p {
   line-height: 1.8;
 }
 
-.mini-movement-hero a,
-.mini-movement-about a {
+.mini-movement-hero a {
   display: inline-flex;
   padding-top: 12px;
   padding: 11px 14px;
@@ -3590,6 +3592,14 @@ html[data-theme="light"] #karya .section-head > p {
   background: #f8f7f2;
 }
 
+.mini-movement-class-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 16px;
+  object-fit: cover;
+}
+
 .mini-movement-class-grid article > b {
   color: #748d78;
   font-size: 8px;
@@ -3597,7 +3607,7 @@ html[data-theme="light"] #karya .section-head > p {
 }
 
 .mini-movement-class-grid h3 {
-  padding: 22px 0 7px;
+  padding: 12px 0 7px;
   color: #263d36;
   font: 700 15px var(--display);
 }
@@ -4722,5 +4732,263 @@ html[data-theme="light"] body {
   .mini-movement-header nav,
   .mini-garden-header nav {
     gap: 6px;
+  }
+}
+
+.study-preview-faq {
+  padding: clamp(32px, 6vw, 64px);
+}
+
+.study-preview-faq-heading {
+  margin-bottom: 18px;
+}
+
+.study-preview-faq-heading > span,
+.study-preview-contact > div > span,
+.mini-movement-about > span,
+.mini-garden-about > span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.study-preview-faq-heading h2 {
+  padding: 10px 0 18px;
+  font: 600 clamp(28px, 4.5vw, 44px) / 1.08 var(--display);
+  letter-spacing: -0.04em;
+}
+
+.study-preview-faq-list {
+  max-width: 860px;
+}
+
+.study-preview-faq-list details {
+  border-top: 1px solid rgba(50, 50, 45, 0.18);
+}
+
+.study-preview-faq-list summary {
+  position: relative;
+  padding: 15px 32px 15px 0;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.study-preview-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.study-preview-faq-list summary::after {
+  position: absolute;
+  top: 14px;
+  right: 4px;
+  content: "+";
+  font-size: 16px;
+}
+
+.study-preview-faq-list details[open] summary::after {
+  content: "−";
+}
+
+.study-preview-faq-list details p {
+  max-width: 760px;
+  padding: 0 36px 16px 0;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.cafe-site-faq {
+  background: #f5f0e7;
+  color: #392b20;
+}
+
+.cafe-site-faq .study-preview-faq-heading > span,
+.cafe-site-faq .study-preview-faq-list details p {
+  color: #716758;
+}
+
+.cafe-site-faq h2 {
+  color: #392b20;
+}
+
+.mini-home-faq {
+  background: #f7f5f0;
+  color: #29352a;
+}
+
+.mini-home-faq .study-preview-faq-heading > span,
+.mini-home-faq .study-preview-faq-list details p {
+  color: #677b5d;
+}
+
+.mini-home-faq h2 {
+  color: #29352a;
+}
+
+.mini-movement-faq {
+  background: #f8f7f2;
+  color: #263d36;
+}
+
+.mini-movement-faq .study-preview-faq-heading > span,
+.mini-movement-faq .study-preview-faq-list details p {
+  color: #607966;
+}
+
+.mini-movement-faq h2 {
+  color: #263d36;
+}
+
+.mini-garden-faq {
+  background: #f4f3e9;
+  color: #34523b;
+}
+
+.mini-garden-faq .study-preview-faq-heading > span,
+.mini-garden-faq .study-preview-faq-list details p {
+  color: #6d8767;
+}
+
+.mini-garden-faq h2 {
+  color: #34523b;
+}
+
+.study-preview-contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  padding: clamp(32px, 6vw, 64px);
+}
+
+.study-preview-contact h2 {
+  padding: 10px 0;
+  font: 600 clamp(28px, 4.5vw, 42px) / 1.08 var(--display);
+  letter-spacing: -0.04em;
+}
+
+.study-preview-contact p {
+  max-width: 520px;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.study-preview-contact > a {
+  display: inline-flex;
+  justify-self: end;
+  padding: 11px 14px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.mini-home-contact {
+  background: #e9e7df;
+  color: #29352a;
+}
+
+.mini-home-contact > div > span {
+  color: #677b5d;
+}
+
+.mini-home-contact p {
+  color: #676b61;
+}
+
+.mini-home-contact > a {
+  background: #354631;
+  color: #fff;
+}
+
+.mini-movement-about > span {
+  color: #607966;
+}
+
+.mini-movement-about p {
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+.mini-movement-contact {
+  background: #e0e7dc;
+  color: #263d36;
+}
+
+.mini-movement-contact > div > span,
+.mini-movement-contact p {
+  color: #607966;
+}
+
+.mini-movement-contact > a {
+  background: #c5d9bb;
+  color: #24352e;
+}
+
+.mini-garden-about {
+  padding: clamp(36px, 6vw, 64px);
+  background: #e7ebdf;
+  color: #34523b;
+  text-align: center;
+}
+
+.mini-garden-about > span {
+  color: #6d8767;
+}
+
+.mini-garden-about h2 {
+  padding: 15px 0;
+  font: 600 clamp(30px, 4.5vw, 48px) / 1.02 var(--display);
+  letter-spacing: -0.05em;
+}
+
+.mini-garden-about h2 em {
+  color: #7c9971;
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+.mini-garden-about p {
+  max-width: 620px;
+  margin-inline: auto;
+  color: #687768;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.mini-garden-contact {
+  background: #e7ebdf;
+  color: #34523b;
+}
+
+.mini-garden-contact > div > span,
+.mini-garden-contact p {
+  color: #6d8767;
+}
+
+.mini-garden-contact > a {
+  background: #34523b;
+  color: #fff;
+}
+
+.cafe-site-content section[id],
+.mini-home-content section[id],
+.mini-movement-content section[id],
+.mini-garden-content section[id] {
+  scroll-margin-top: 78px;
+}
+
+@media (max-width: 620px) {
+  .study-preview-faq {
+    padding-inline: 24px;
+  }
+
+  .study-preview-contact {
+    grid-template-columns: 1fr;
+    padding-inline: 24px;
+  }
+
+  .study-preview-contact > a {
+    justify-self: start;
   }
 }
